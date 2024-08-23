@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>套版整合工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>套版整合工具</h1>
+        <div>
+            <h2>功能</h2>
+            <p>1. 取得全部版型Id</p>
+            <p>2. 儲存已選取的版型到Layout</p>
+            <p>3. 編輯版型資訊</p>
+            <p>4. 取得Cookie</p>
+        
+            <hr>
+
+        <!-- Get Template Items Section -->
+        <section>
+            <h2>取得版型Id</h2>
+            <input type="text" id="dir"
+                value="/Users/neux/taishinlife-cms-frontend/libs/garden-lib/src/lib/function/renderer-templates/template"
+                placeholder="版型資料夾路徑 e.g. /Users/neux/taishinlife-cms-frontend/libs/garden-lib/src/lib/function/renderer-templates/template">
+            <button id="getTemplateItemsBtn">取得</button>
+            <!-- Select All button -->
+            <button id="selectAllBtn" style="display: none; width: 80px; background-color: cadetblue;">全選</button>
+            <!-- Clear All button -->
+            <button id="clearAllBtn" style="display: none; width: 80px; background-color: cadetblue;">取消全選</button>
+            <div id="templateItemsResult" class="checkbox-container"></div> <!-- Container for checkboxes -->
+        </section>
+
+        <!-- Get Templates Content Info Section -->
+        <section>
+            <h2>取得版型資訊</h2>
+            <textarea id="templatesInput" placeholder="輸入版型JSON"></textarea>
+            <pre id="templatesContentResult"></pre>
+        </section>
+
+        <!-- Trigger content_info_json Section -->
+        <section>
+            <h2>儲存已選取的版型到Layout</h2>
+            <input type="text" id="contentIdInput" placeholder="Enter content_id">
+            <input type="text" id="nodeIdInput" placeholder="Enter node_id">
+            <input type="number" id="levelInput" placeholder="Enter level">
+            <button id="triggerContentInfoJsonBtn">儲存</button>
+            <pre id="updateContentResult"></pre> <!-- Display result of the updateContent call -->
+        </section>
+
+        <!-- Link Section -->
+        <section id="linkSection" style="display: none;">
+            <h2>頁面連結</h2>
+            <a id="resultLink" href="" target="_blank">View Page</a>
+        </section>
+
+        <!-- Editable Content Info Section -->
+        <section>
+            <h2>編輯版型資訊</h2>
+            <textarea id="editableContentInfo" placeholder="Edit content_info_json here"></textarea>
+        </section>
+
+        <!-- Get Cookie Section -->
+        <section style="visibility: hidden;">
+            <h2>取得Cookie</h2>
+            <input type="text" id="domain" value="http://localhost:5200"
+                placeholder="Domain (e.g., http://192.168.0.115:8080)">
+            <input type="text" id="loginUser" value="admin" placeholder="Username">
+            <input type="password" id="loginPwd" value="admin1234" placeholder="Password">
+            <button id="getCookieBtn">取得</button>
+            <pre id="cookieResult"></pre>
+        </section>
+    </div>
+
+    <!-- Spinner and Overlay -->
+    <div class="overlay"></div>
+    <div class="loader"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
